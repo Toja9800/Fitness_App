@@ -1,5 +1,6 @@
 package com.example.kotlinlogin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -58,6 +59,11 @@ class MainActivity3 : AppCompatActivity() {
 
     fun printResult(result : JSONObject) {
     findViewById<TextView>(R.id.resultTextView).text = result["message"].toString()
+    }
+
+    fun onclick(v: View) {
+        val intent = Intent(this, DatyActivity::class.java)
+        startActivity(intent)
     }
 
 }
