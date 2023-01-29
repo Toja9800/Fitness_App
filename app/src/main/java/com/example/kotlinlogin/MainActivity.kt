@@ -80,6 +80,8 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, response["message"].toString(), Toast.LENGTH_LONG).show()
             MainActivity.loggedin = true
             MainActivity.session = response["session"].toString()
+            // if user (in database) intent = Intent(this, DatyActivity::class.java)
+            // if trainer (in database) intent = Intent(this, GrafikActivity::class.java)
             val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
         }
