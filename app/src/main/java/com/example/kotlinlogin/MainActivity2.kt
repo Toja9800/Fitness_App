@@ -33,6 +33,7 @@ class MainActivity2 : AppCompatActivity() {
         val  email = findViewById<EditText>(R.id.registerEmailEditText).text.toString()
         val  password = findViewById<EditText>(R.id.registerPasswordlEditText).text.toString()
         val  password2 = findViewById<EditText>(R.id.registerConfirmPasswordlEditText).text.toString()
+        //val role_id = 1
 
         if (!password.equals(password2)) {
             Toast.makeText(this, "Hasla nie pasuja!", Toast.LENGTH_LONG).show()
@@ -47,6 +48,7 @@ class MainActivity2 : AppCompatActivity() {
         jsonObject.put("username",user)
         jsonObject.put("password",password)
         jsonObject.put("email",email)
+        //jsonObject.put("role_id", role_id)
 
 
         // Volley post request with parameters
