@@ -1,8 +1,10 @@
 package com.example.kotlinlogin
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
@@ -47,6 +49,11 @@ class DatyActivity : AppCompatActivity() {
         val data7 = findViewById<TextView>(R.id.data7)
         data7.setText(date7)
 
+    }
+
+    fun Przejdz(v: View) {
+        val intent = Intent(this, GodzinyActivity::class.java)
+        startActivity(intent)
     }
 
 

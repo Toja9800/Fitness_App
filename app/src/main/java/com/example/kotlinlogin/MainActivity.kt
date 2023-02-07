@@ -87,7 +87,6 @@ class MainActivity : AppCompatActivity() {
             Response.Listener { response ->
                 // Process the json
                 try {
-                    Log.d("elo", "jestem przed: ${MainActivity.role}")
                     if(MainActivity.role == """[{"role_id":"1"}]""") {
                         intent = Intent(this, DatyActivity::class.java)
                         Log.d("fun onClickrole", "odp: $role")

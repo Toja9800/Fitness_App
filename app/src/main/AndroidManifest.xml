@@ -14,6 +14,15 @@
         android:theme="@style/Theme.KotlinLogin"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".grafik"
+            android:exported="true" />
+        <activity
+            android:name=".GodzinyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GodzinyActivity4"
+            android:exported="true" />
+        <activity
             android:name=".ZadaniaActivity"
             android:exported="false" />
         <activity
