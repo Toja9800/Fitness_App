@@ -27,23 +27,23 @@ class DatyActivity : AppCompatActivity() {
         val data2 = findViewById<TextView>(R.id.data2)
         data2.setText(date2)
 
-        val date3: String = LocalDate.now().plusDays(1).toString()
+        val date3: String = LocalDate.now().plusDays(2).toString()
         val data3 = findViewById<TextView>(R.id.data3)
         data3.setText(date3)
 
-        val date4: String = LocalDate.now().plusDays(1).toString()
+        val date4: String = LocalDate.now().plusDays(3).toString()
         val data4 = findViewById<TextView>(R.id.data4)
         data4.setText(date4)
 
-        val date5: String = LocalDate.now().plusDays(1).toString()
+        val date5: String = LocalDate.now().plusDays(4).toString()
         val data5 = findViewById<TextView>(R.id.data5)
         data5.setText(date5)
 
-        val date6: String = LocalDate.now().plusDays(1).toString()
+        val date6: String = LocalDate.now().plusDays(5).toString()
         val data6 = findViewById<TextView>(R.id.data6)
         data6.setText(date6)
 
-        val date7: String = LocalDate.now().plusDays(1).toString()
+        val date7: String = LocalDate.now().plusDays(6).toString()
         val data7 = findViewById<TextView>(R.id.data7)
         data7.setText(date7)
 
