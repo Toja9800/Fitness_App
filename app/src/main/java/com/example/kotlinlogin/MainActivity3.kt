@@ -58,7 +58,7 @@ class MainActivity3 : AppCompatActivity() {
     }
 
     fun printResult(result : JSONObject) {
-    findViewById<TextView>(R.id.resultTextView).text = result["message"].toString()
+        findViewById<TextView>(R.id.resultTextView).text = result["message"].toString()
     }
 
     fun onclick(v: View) {

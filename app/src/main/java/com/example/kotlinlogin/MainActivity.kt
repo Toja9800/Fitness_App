@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         var password = ""
         var session = ""
         var loggedin = false
+        lateinit var role: Any
     }
 
 
@@ -42,6 +43,15 @@ class MainActivity : AppCompatActivity() {
         val url = "http://10.0.2.2/androiddb/"
 
 
+        val query = "SELECT role_id FROM `users` WHERE username = '${user}'"
+
+        val jsonrole = JSONObject()
+        jsonrole.put("username",user)
+        jsonrole.put("password",password)
+        jsonrole.put("email","")
+        jsonrole.put("query",query)
+
+
         // Post parameters
         val jsonObject = JSONObject()
         jsonObject.put("username",user)
@@ -50,11 +60,45 @@ class MainActivity : AppCompatActivity() {
 
 
         // Volley post request with parameters
+        val requestrole = JsonObjectRequest(Request.Method.POST,url,jsonrole,
+            Response.Listener { response ->
+                // Process the json
+                try {
+                    val role = response["message"].toString()
+                    MainActivity.role = role
+
+                    }catch (e:Exception){
+                    Log.d("fun onClickrole:","Exception: $e")
+                }
+
+            }, Response.ErrorListener{
+                // Error in request
+                Log.d("fun onClickQuery:","Volley error: $it")
+            })
+
+        VolleySingleton.getInstance(this).addToRequestQueue(requestrole)
+
+
+
+        var intent = Intent(this, DatyActivity::class.java)
+
+        // Volley post request with parameters
         val requestPOST = JsonObjectRequest(Request.Method.POST,url,jsonObject,
             Response.Listener { response ->
                 // Process the json
                 try {
-                    processResponse(response)
+                    Log.d("elo", "jestem przed: ${MainActivity.role}")
+                    if(MainActivity.role == """[{"role_id":"1"}]""") {
+                        intent = Intent(this, DatyActivity::class.java)
+                        Log.d("fun onClickrole", "odp: $role")
+                        Log.d("fun onClickrole","odp: $response")
+                    }
+                    if(MainActivity.role == """[{"role_id":"2"}]""") {
+                        intent = Intent(this, MainActivity3::class.java)
+                        Log.d("fun onClickrole", "odp: $role")
+                        Log.d("fun onClickrole","odp: $response")
+                    }
+                    processResponse(response, intent)
                     Log.d("fun onClickLogin:","Response: $response")
                 }catch (e:Exception){
                     Log.d("fun onClickLogin:","Exception: $e")
@@ -66,7 +110,7 @@ class MainActivity : AppCompatActivity() {
             })
 
 
-        // zapamietajmy uzytegko usera i haslo - na wypadek gdyby udalo sie zalogowac
+        // zapamietajmy uzytego usera i haslo - na wypadek gdyby udalo sie zalogowac
         MainActivity.username = user
         MainActivity.password = password
 
@@ -75,16 +119,15 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun processResponse(response: JSONObject) {
+    fun processResponse(response: JSONObject, intent: Intent) {
         if (response["success"]==1) {
             Toast.makeText(this, response["message"].toString(), Toast.LENGTH_LONG).show()
             MainActivity.loggedin = true
             MainActivity.session = response["session"].toString()
 
-            //tutaj bedziemy sprawdzac kto sie loguje i odpowiednio bedziemy sie przenosic do danego activity
-            // trzeba dodac ifa i sprawdzic odpowiedni atrybut w bazie danych (ale przez to bedziemy musieli zmodyfikowac ekran rejestracji, zeby odczytywał
-            // czy logujemy sie jako trener czy uzytkownik
-            val intent = Intent(this, DatyActivity::class.java)
+
+            //jsonObject.put("query",query)
+
             startActivity(intent)
         }
         if (response["success"]==0) {
