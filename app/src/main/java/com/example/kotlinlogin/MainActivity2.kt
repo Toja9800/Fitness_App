@@ -81,7 +81,6 @@ class MainActivity2 : AppCompatActivity() {
         if (response["success"]==0) {
             Toast.makeText(this, response["message"].toString(), Toast.LENGTH_LONG).show()
         }
-
+        //kom2
     }
-    // komentarz atencyjny
 }
