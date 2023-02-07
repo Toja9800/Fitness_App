@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinLogin</string>
+    <string name="app_name">AppFit</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="username">Username</string>

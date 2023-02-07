@@ -80,7 +80,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, response["message"].toString(), Toast.LENGTH_LONG).show()
             MainActivity.loggedin = true
             MainActivity.session = response["session"].toString()
-            val intent = Intent(this, MainActivity3::class.java)
+
+            //tutaj bedziemy sprawdzac kto sie loguje i odpowiednio bedziemy sie przenosic do danego activity
+            // trzeba dodac ifa i sprawdzic odpowiedni atrybut w bazie danych (ale przez to bedziemy musieli zmodyfikowac ekran rejestracji, zeby odczytywał
+            // czy logujemy sie jako trener czy uzytkownik
+            val intent = Intent(this, DatyActivity::class.java)
             startActivity(intent)
         }
         if (response["success"]==0) {
