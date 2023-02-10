@@ -13,15 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinLogin"
         android:usesCleartextTraffic="true">
+
+
+        <activity
+            android:name=".MenuTrener"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MenuKlient"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".grafik"
             android:exported="true" />
         <activity
             android:name=".GodzinyActivity"
             android:exported="true" />
-        <activity
-            android:name=".GodzinyActivity4"
-            android:exported="true" />
+
         <activity
             android:name=".ZadaniaActivity"
             android:exported="false" />

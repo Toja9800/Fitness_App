@@ -88,12 +88,12 @@ class MainActivity : AppCompatActivity() {
                 // Process the json
                 try {
                     if(MainActivity.role == """[{"role_id":"1"}]""") {
-                        intent = Intent(this, DatyActivity::class.java)
+                        intent = Intent(this, MenuKlient::class.java)
                         Log.d("fun onClickrole", "odp: $role")
                         Log.d("fun onClickrole","odp: $response")
                     }
                     if(MainActivity.role == """[{"role_id":"2"}]""") {
-                        intent = Intent(this, MainActivity3::class.java)
+                        intent = Intent(this, MenuTrener::class.java)
                         Log.d("fun onClickrole", "odp: $role")
                         Log.d("fun onClickrole","odp: $response")
                     }
