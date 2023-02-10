@@ -29,10 +29,10 @@ class MenuTrener : AppCompatActivity() {
         var textEdit = findViewById<EditText>(R.id.TypZajec)
         val typZajec = textEdit.text.toString()
 
-        var textEdit2 = findViewById<EditText>(R.id.TypZajec)
+        var textEdit2 = findViewById<EditText>(R.id.sala)
         val sala = textEdit2.text.toString()
 
-        var textEdit3 = findViewById<EditText>(R.id.TypZajec)
+        var textEdit3 = findViewById<EditText>(R.id.data)
         val termin = textEdit3.text.toString()
 
 
