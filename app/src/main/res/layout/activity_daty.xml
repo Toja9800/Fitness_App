@@ -25,7 +25,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button9"
             android:layout_width="115dp"
-            android:layout_height="60dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="Przejdz"
@@ -33,7 +33,7 @@
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
             android:textSize="17dp"
-            android:background="@drawable/custom_button"/>
+            android:background="@drawable/custom2"/>
     </LinearLayout>
 
     <LinearLayout
@@ -75,15 +75,18 @@
             android:gravity="center"
             android:text="" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button11"
             android:layout_width="115dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź"/>
+            android:text="Przejdź"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:background="@drawable/custom2"/>
     </LinearLayout>
 
     <LinearLayout
@@ -99,15 +102,18 @@
             android:gravity="center"
             android:text="" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button12"
             android:layout_width="115dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź"/>
+            android:text="Przejdź"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:background="@drawable/custom2"/>
     </LinearLayout>
 
     <LinearLayout
@@ -123,15 +129,18 @@
             android:gravity="center"
             android:text="" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button13"
             android:layout_width="115dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź"/>
+            android:text="Przejdź"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:background="@drawable/custom2"/>
     </LinearLayout>
 
     <LinearLayout
@@ -147,15 +156,18 @@
             android:gravity="center"
             android:text="" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button14"
             android:layout_width="115dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź"/>
+            android:text="Przejdź"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:background="@drawable/custom2"/>
     </LinearLayout>
 
     <LinearLayout
@@ -171,15 +183,18 @@
             android:gravity="center"
             android:text="" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button15"
             android:layout_width="115dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź"/>
+            android:text="Przejdź"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="17dp"
+            android:background="@drawable/custom2"/>
     </LinearLayout>
 
 </LinearLayout>
