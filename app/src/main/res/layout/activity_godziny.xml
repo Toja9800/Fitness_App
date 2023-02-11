@@ -21,13 +21,13 @@
             android:text="" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/button1"
             android:layout_width="115dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:onClick="Rezerwuj"
+            android:text="Rezerwuj" />
     </LinearLayout>
 
 
