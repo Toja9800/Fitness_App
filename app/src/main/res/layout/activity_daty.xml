@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bb"
     tools:context=".DatyActivity">
 
     <LinearLayout
@@ -16,6 +17,7 @@
             android:id="@+id/data1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="" />
@@ -23,11 +25,13 @@
         <Button
             android:id="@+id/button9"
             android:layout_width="115dp"
-            android:layout_height="64dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:text="Przejdź"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/custom_button"/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +54,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:layout_marginTop="5dp"
+            android:text="Przejdź"/>
     </LinearLayout>
 
     <LinearLayout
@@ -72,8 +77,9 @@
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:text="Przejdź"/>
     </LinearLayout>
 
     <LinearLayout
@@ -95,8 +101,9 @@
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:text="Przejdź"/>
     </LinearLayout>
 
     <LinearLayout
@@ -118,8 +125,9 @@
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:text="Przejdź"/>
     </LinearLayout>
 
     <LinearLayout
@@ -141,8 +149,9 @@
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:text="Przejdź"/>
     </LinearLayout>
 
     <LinearLayout
@@ -164,8 +173,9 @@
             android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:onClick="Przejdz"
-            android:text="Przejdź" />
+            android:text="Przejdź"/>
     </LinearLayout>
 
 </LinearLayout>

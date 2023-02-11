@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         jsonid.put("username",user)
         jsonid.put("password",password)
         jsonid.put("email","")
-        jsonid.put("query","select id from 'users' where username = '${user}'")
+        jsonid.put("query","select id from `users` where username = '${user}'")
 
 
         val query = "SELECT role_id FROM `users` WHERE username = '${user}'"
@@ -71,10 +71,44 @@ class MainActivity : AppCompatActivity() {
                 // Process the json
                 try {
                     val id = response["message"].toString()
-                    MainActivity.id = id
 
+                    if(id == """[{"id":"1"}]""") {
+                        MainActivity.id = 1
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
+                    if(id == """[{"id":"2"}]""") {
+                        MainActivity.id = 2
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
+                    if(id == """[{"id":"3"}]""") {
+                        MainActivity.id = 3
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
+                    if(id == """[{"id":"4"}]""") {
+                        MainActivity.id = 4
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
+                    if(id == """[{"id":"5"}]""") {
+                        MainActivity.id = 5
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
+                    if(id == """[{"id":"6"}]""") {
+                        MainActivity.id = 6
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
+                    if(id == """[{"id":"7"}]""") {
+                        MainActivity.id = 7
+                        Log.d("fun onClickid", "odp: $id")
+                        Log.d("fun onClickid","odp: $response")
+                    }
                 }catch (e:Exception){
-                    Log.d("fun onClickrole:","Exception: $e")
+                    Log.d("fun onClickid:","Exception: $e")
                 }
 
             }, Response.ErrorListener{
