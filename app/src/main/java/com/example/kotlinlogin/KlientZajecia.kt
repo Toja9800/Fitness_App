@@ -1,11 +1,11 @@
 package com.example.kotlinlogin
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.ListView
 import android.widget.Toast
 import com.android.volley.Request
@@ -14,97 +14,46 @@ import com.android.volley.toolbox.JsonObjectRequest
 import org.json.JSONArray
 import org.json.JSONObject
 
-class MenuTrener : AppCompatActivity() {
+class KlientZajecia : AppCompatActivity() {
 
     private val zaj = mutableListOf<Zajecia>()//lista obiewktow rodzaju zajecia
-    private lateinit var adapter : ZajeciaTrenerAdapter
+    private lateinit var adapter : KlientZajeciaAdapter
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_trener)
+        setContentView(R.layout.activity_klient_zajecia)
 
 
 
 
 
         // Tworzymy nasz ZadaniaAdapter i wiążemy go z listView
-        adapter = ZajeciaTrenerAdapter(this, zaj, this)
+        adapter = KlientZajeciaAdapter(this, zaj, this)
         var listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
 
         // Wczytujemy zadania z bazy danych
-        odswiezListeZadan()
+       odswiezListeZadan2()
 
 
 
     }
 
-    fun onClickDodaj(v: View) {
-        Log.d("dodajZadanie","ENTER")
-
-        var textEdit = findViewById<EditText>(R.id.TypZajec)
-        val typZajec = textEdit.text.toString()
-
-        var textEdit2 = findViewById<EditText>(R.id.sala)
-        val sala = textEdit2.text.toString()
-
-        var textEdit3 = findViewById<EditText>(R.id.data)
-        val termin = textEdit3.text.toString()
 
 
-        val  user = MainActivity.username
-        val  password = MainActivity.password
-
-        val query = "INSERT INTO `zajecia` (rodzaj, sala, termin,trener_id) VALUES ('$typZajec', '$sala', '$termin',1)"
-
-        val url = "http://10.0.2.2/androiddb/"
-
-
-        // Post parameters
-        val jsonObject = JSONObject()
-        jsonObject.put("username",user)
-        jsonObject.put("password",password)
-        jsonObject.put("email","")
-        jsonObject.put("query",query)
-
-       // Log.d("fun onClickQuery:","jsonObject: $jsonObject")
-        odswiezListeZadan()
-
-        // Volley post request with parameters
-        val requestPOST =
-            JsonObjectRequest(Request.Method.POST, url, jsonObject,
-                Response.Listener { response ->
-                    try {
-                        odswiezListeZadan()
-
-                        Log.d("dodajZadanie","Response: $response")
-                        textEdit.setText("")
-                        textEdit2.setText("")
-                        textEdit3.setText("")
-                        // Odświeżamy całą listę zadań
-                        odswiezListeZadan()
-                        Toast.makeText(this, "Dodano!", Toast.LENGTH_LONG).show()
-
-                    } catch (e:Exception){
-                        Log.d("dodajZadanie","Exception: $e")
-                    }
-                }, Response.ErrorListener{
-                    // Error in request
-                    Log.d("dodajZadanie","Volley error: $it")
-                })
-        odswiezListeZadan()
-        VolleySingleton.getInstance(this).addToRequestQueue(requestPOST)
-
-    }
-
-    fun odswiezListeZadan() {
+    fun odswiezListeZadan2() {
         Log.d("odswiezListeZadan","ENTER")
         // Konstruujemy zapytanie do bazy danych
         val jsonObject = JSONObject()
         jsonObject.put("username", MainActivity.username)
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
-        jsonObject.put("query","SELECT id, rodzaj, termin, sala, trener_id from `zajecia`")
+        jsonObject.put("query","SELECT zajecia.id, zajecia.rodzaj, zajecia.termin, zajecia.sala," +
+               " zajecia.trener_id ,wybrane_zajecia.id from `zajecia` join `wybrane_zajecia` on wybrane_zajecia.zajecia_id=zajecia.id " +
+               "where wybrane_zajecia.user_id=5 ")
+
+
 
         val requestPOST =
             JsonObjectRequest(Request.Method.POST, url,jsonObject,
@@ -130,7 +79,7 @@ class MenuTrener : AppCompatActivity() {
                             print(rodzaj)
                             print(termin)
                             print(sala)
-                            //print(trener_id)
+                            print(trener_id)
 
                             zaj.add(Zajecia(id,rodzaj , termin, sala, trener_id))
                         }
@@ -148,7 +97,7 @@ class MenuTrener : AppCompatActivity() {
         VolleySingleton.getInstance(this).addToRequestQueue(requestPOST)
     }
 
-      fun usunZadanie(position: Int) {//override nie pozebne??
+    fun usunZadanie(position: Int) {//override nie pozebne??
         Log.d("usunZadanie","ENTER")
         // Pobieramy kliknięte zadanie z listy
         val zadanie = adapter.getItem(position) as Zajecia
@@ -159,7 +108,7 @@ class MenuTrener : AppCompatActivity() {
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
         jsonObject.put("query",
-            "DELETE from `zajecia` WHERE id=${zadanie.id}")
+            "DELETE from `wybrane_zajecia` WHERE id=${zadanie.id} ")
 
         val requestPOST =
             JsonObjectRequest(Request.Method.POST, url,jsonObject,
@@ -168,7 +117,7 @@ class MenuTrener : AppCompatActivity() {
                         // Obsługa odpowiedzi z bazy danych
                         Log.d("usunZadanie","Response: $response")
                         // Odświeżamy całą listę zadań
-                        odswiezListeZadan()
+                        odswiezListeZadan2()
                         Toast.makeText(this, "usunieto!", Toast.LENGTH_LONG).show()
                     } catch (e:Exception){
                         Log.d("usunZadanie","Exception: $e")
@@ -181,22 +130,11 @@ class MenuTrener : AppCompatActivity() {
     }
 
 
+    fun onClickPowrot(v: View) {
 
 
-
-
-    fun onClickLogout(v: View) {
-
-
-        MainActivity.username = ""
-        MainActivity.password = ""
-        MainActivity.session = ""
-        MainActivity.role = ""
-        MainActivity.loggedin = false
-
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, MenuKlient::class.java))
     }
-
 
 
 }

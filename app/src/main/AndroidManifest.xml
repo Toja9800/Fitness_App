@@ -13,8 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinLogin"
         android:usesCleartextTraffic="true">
-
-
+        <activity
+            android:name=".Testowe"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".KlientZajeciaAdapter"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".KlientZajecia"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MenuTrener"
             android:exported="false">
@@ -35,7 +54,6 @@
         <activity
             android:name=".GodzinyActivity"
             android:exported="true" />
-
         <activity
             android:name=".ZadaniaActivity"
             android:exported="false" />

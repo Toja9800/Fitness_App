@@ -30,21 +30,21 @@
                 android:hint="Typ zajęć" />
 
             <EditText
-                android:id="@+id/sala"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="sala"
-                android:inputType="textPersonName" />
-
-            <EditText
                 android:id="@+id/data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Data"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/sala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="sala"
                 android:inputType="textPersonName" />
 
         </LinearLayout>

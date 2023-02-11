@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         var session = ""
         var loggedin = false
         lateinit var role: Any
+        lateinit var id: Any
     }
 
 
@@ -42,6 +43,12 @@ class MainActivity : AppCompatActivity() {
 
         val url = "http://10.0.2.2/androiddb/"
 
+        val jsonid = JSONObject()
+        jsonid.put("username",user)
+        jsonid.put("password",password)
+        jsonid.put("email","")
+        jsonid.put("query","select id from 'users' where username = '${user}'")
+
 
         val query = "SELECT role_id FROM `users` WHERE username = '${user}'"
 
@@ -57,6 +64,26 @@ class MainActivity : AppCompatActivity() {
         jsonObject.put("username",user)
         jsonObject.put("password",password)
         jsonObject.put("email","")
+
+        // Volley post request with parameters
+        val requestid = JsonObjectRequest(Request.Method.POST,url,jsonid,
+            Response.Listener { response ->
+                // Process the json
+                try {
+                    val id = response["message"].toString()
+                    MainActivity.id = id
+
+                }catch (e:Exception){
+                    Log.d("fun onClickrole:","Exception: $e")
+                }
+
+            }, Response.ErrorListener{
+                // Error in request
+                Log.d("fun onClickQuery:","Volley error: $it")
+            })
+
+        VolleySingleton.getInstance(this).addToRequestQueue(requestid)
+
 
 
         // Volley post request with parameters

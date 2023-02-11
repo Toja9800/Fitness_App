@@ -21,7 +21,7 @@ class MenuKlient : AppCompatActivity() {
     }
 
     fun onClickSwitchToTwojeZaj(v: View) {
-        val intent = Intent(this, MainActivity3::class.java)
+        val intent = Intent(this, KlientZajecia::class.java)
         startActivity(intent)
     }
 

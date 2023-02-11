@@ -1,6 +1,8 @@
 package com.example.kotlinlogin
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +10,11 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 
-class ZajeciaTrenerAdapter(
+class KlientZajeciaAdapter(
     context: Context, tests: List<Zajecia>,
-    val usunZadanieListener: MenuTrener,
+    val usunZadanieListener: KlientZajecia,
 
-) :
+    ) :
     ArrayAdapter<Zajecia>(context, R.layout.activity_zajecia, tests) {
 
     // Interfejs, który musi implementować klasa, która będzie
