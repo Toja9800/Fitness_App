@@ -50,8 +50,7 @@ class ZadaniaAdapter(
         Zarezerwuj.setOnClickListener { v : View ->
             if ( rezerwujZadanieListener != null) {
                 rezerwujZadanieListener.rezerwujZadanie(position)
-                Zarezerwuj.setBackgroundColor(0)
-                Zarezerwuj.setTextColor(0)
+                Zarezerwuj.visibility = View.GONE
             }
         }
 
