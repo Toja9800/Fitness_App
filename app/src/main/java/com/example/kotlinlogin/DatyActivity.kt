@@ -63,14 +63,14 @@ class DatyActivity : AppCompatActivity() {
     fun Przejdz(v: View) {
         val intent = Intent(this, GodzinyActivity::class.java)
 
-        var date: String = LocalDate.now().toString()
+        var date: String = LocalDate.now().dayOfWeek.toString()
         when(v.id) {
-            R.id.button9 -> date = LocalDate.now().toString()
-            R.id.button10 -> date = LocalDate.now().plusDays(1).toString()
-            R.id.button11 -> date = LocalDate.now().plusDays(2).toString()
-            R.id.button12 -> date = LocalDate.now().plusDays(3).toString()
-            R.id.button13 -> date = LocalDate.now().plusDays(4).toString()
-            R.id.button14 -> date = LocalDate.now().plusDays(5).toString()
+            R.id.button9 -> date = LocalDate.now().dayOfWeek.toString()
+            R.id.button10 -> date = LocalDate.now().plusDays(1).dayOfWeek.toString()
+            R.id.button11 -> date = LocalDate.now().plusDays(2).dayOfWeek.toString()
+            R.id.button12 -> date = LocalDate.now().plusDays(3).dayOfWeek.toString()
+            R.id.button13 -> date = LocalDate.now().plusDays(4).dayOfWeek.toString()
+            R.id.button14 -> date = LocalDate.now().plusDays(5).dayOfWeek.toString()
             R.id.button15 -> date = LocalDate.now().plusDays(6).dayOfWeek.toString()
         }
 
