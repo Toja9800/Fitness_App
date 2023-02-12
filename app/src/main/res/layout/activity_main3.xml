@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_button"
     tools:context=".MainActivity3">
 
     <TextView
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
         android:onClick="onClickQuery"
+        android:background="@drawable/custom2"
         android:text="Go"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

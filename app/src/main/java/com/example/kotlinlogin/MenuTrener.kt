@@ -52,7 +52,7 @@ class MenuTrener : AppCompatActivity() {
         val dzien = textEdit3.text.toString()
 
         var textEdit4 = findViewById<EditText>(R.id.godzina)
-        val godzina = textEdit3.text.toString()
+        val godzina = textEdit4.text.toString()
 
 
         val  user = MainActivity.username
