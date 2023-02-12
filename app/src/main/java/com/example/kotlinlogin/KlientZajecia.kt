@@ -32,12 +32,7 @@ class KlientZajecia : AppCompatActivity() {
 
         // Wczytujemy zadania z bazy danych
        odswiezListeZadan2()
-
-
-
     }
-
-
 
     fun odswiezListeZadan2() {
         val url = "http://10.0.2.2/androiddb/"
@@ -49,7 +44,7 @@ class KlientZajecia : AppCompatActivity() {
         jsonObject.put("email","")
         jsonObject.put("query","SELECT zajecia.id, zajecia.rodzaj, zajecia.dzien,zajecia.dzien,zajecia.godzina, zajecia.sala," +
                " zajecia.trener_id ,wybrane_zajecia.id from `zajecia` join `wybrane_zajecia` on wybrane_zajecia.zajecia_id=zajecia.id " +
-               "where wybrane_zajecia.user_id=1 ")
+               "where wybrane_zajecia.user_id=${MainActivity.id} ")
 
 
 

@@ -51,8 +51,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonpowrot"
-            android:layout_width="82dp"
-            android:layout_height="60dp"
+            android:layout_width="109dp"
+            android:layout_height="46dp"
             android:layout_weight="1"
             android:background="@drawable/custom2"
             android:gravity="center"
