@@ -4,14 +4,21 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
+import java.time.DayOfWeek
 import java.time.LocalDate
 import java.util.*
 
 class DatyActivity : AppCompatActivity() {
+
+    companion object{
+        lateinit var day: String
+    }
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +58,31 @@ class DatyActivity : AppCompatActivity() {
 
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.O)
     fun Przejdz(v: View) {
         val intent = Intent(this, GodzinyActivity::class.java)
+
+        var date: String = LocalDate.now().toString()
+        when(v.id) {
+            R.id.button9 -> date = LocalDate.now().toString()
+            R.id.button10 -> date = LocalDate.now().plusDays(1).toString()
+            R.id.button11 -> date = LocalDate.now().plusDays(2).toString()
+            R.id.button12 -> date = LocalDate.now().plusDays(3).toString()
+            R.id.button13 -> date = LocalDate.now().plusDays(4).toString()
+            R.id.button14 -> date = LocalDate.now().plusDays(5).toString()
+            R.id.button15 -> date = LocalDate.now().plusDays(6).dayOfWeek.toString()
+        }
+
+
+        val day = date
+
+        Log.d("v.id wyswietlam", "R.id.button:${R.id.button9},   odp: ${v.id}")
+        Log.d("day wyswietlam", "odp: $day")
+        Log.d("Mainday wyswietlam", "odp: ${DatyActivity.day}")
+        Log.d("date wyswietlam", "odp: $date")
         startActivity(intent)
     }
-
 
 
 }

@@ -16,10 +16,11 @@ class GodzinyActivity : AppCompatActivity() {
     fun Rezerwuj(v: View) {
         val button = findViewById<Button>(R.id.button1)
         //to tez w zaleznosci czy jest juz zarezerwowane czy nie
-        Toast.makeText(this, "Zarezerwowane!", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Zarezerwowano!", Toast.LENGTH_LONG).show()
         // zmienianie koloru + zmienianie tekstu w zaleznosci od tego czy zarezerwowane czy nie
         //button.setBackgroundColor()
         //button.setText("")
     }
+
 
 }
