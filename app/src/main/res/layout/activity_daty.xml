@@ -197,11 +197,22 @@
             android:background="@drawable/custom2"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button16"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClickPowrot"
-        android:text="Powrot" />
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button1powrot"
+            android:layout_width="80dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="onClickPowrot"
+            android:text="Powrót"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:textSize="17sp"
+            android:background="@drawable/custom2"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
