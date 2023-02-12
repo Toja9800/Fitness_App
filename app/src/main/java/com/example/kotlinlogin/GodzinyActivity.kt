@@ -44,8 +44,8 @@ class GodzinyActivity: AppCompatActivity() {
         jsonObject.put("username", MainActivity.username)
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
-        jsonObject.put("query","SELECT * from `zajecia` where dzien='${DatyActivity.day}'")
-
+        jsonObject.put("query",
+            "SELECT * FROM `zajecia` WHERE dzien = '${DatyActivity.day}' AND id NOT IN (SELECT z.id FROM `zajecia` as z LEFT JOIN `wybrane_zajecia` as wz on z.id = wz.zajecia_id WHERE wz.user_id = '${MainActivity.id}')")
 
 
         val requestPOST =
