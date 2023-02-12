@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        startActivity(Intent(this, DatyActivity::class.java))
     }
 
     fun onClickSwitchToRegister(v: View) {
@@ -45,6 +46,13 @@ class MainActivity : AppCompatActivity() {
 
 
         val query = "SELECT role_id FROM `users` WHERE username = '${user}'"
+        val query1 = "SELECT id FROM `users` WHERE username = '${user}'"
+
+        val jsonid = JSONObject()
+        jsonid.put("username", user)
+        jsonid.put("password",password)
+        jsonid.put("email","")
+        jsonid.put("query",query1)
 
         val jsonrole = JSONObject()
         jsonrole.put("username",user)
@@ -60,6 +68,29 @@ class MainActivity : AppCompatActivity() {
         jsonObject.put("email","")
 
 
+        //wyłuskujemy id uzytkownika
+        val requestid = JsonObjectRequest(Request.Method.POST,url,jsonid,
+            Response.Listener { response ->
+                // Process the json
+                try {
+                    val idjs = response["message"].toString() // id w jsonie
+                    for(i in 0..100) {
+                        if(idjs == """[{"id":"$i"}]""") {
+                            MainActivity.id = i
+                            break
+                        }
+                    }
+
+                }catch (e:Exception){
+                    Log.d("fun onClickrole:","Exception: $e")
+                }
+
+            }, Response.ErrorListener{
+                // Error in request
+                Log.d("fun onClickQuery:","Volley error: $it")
+            })
+
+        VolleySingleton.getInstance(this).addToRequestQueue(requestid)
 
 
 

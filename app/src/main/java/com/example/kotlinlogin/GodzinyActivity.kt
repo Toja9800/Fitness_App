@@ -123,7 +123,6 @@ class GodzinyActivity: AppCompatActivity() {
 
 
     fun onClickPowrot(v: View) {
-
         startActivity(Intent(this, DatyActivity::class.java))
     }
 
