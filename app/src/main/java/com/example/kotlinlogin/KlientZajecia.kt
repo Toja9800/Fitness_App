@@ -43,15 +43,16 @@ class KlientZajecia : AppCompatActivity() {
 
 
     fun odswiezListeZadan2() {
+        val url = "http://10.0.2.2/androiddb/"
         Log.d("odswiezListeZadan","ENTER")
         // Konstruujemy zapytanie do bazy danych
         val jsonObject = JSONObject()
         jsonObject.put("username", MainActivity.username)
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
-        jsonObject.put("query","SELECT zajecia.id, zajecia.rodzaj, zajecia.termin, zajecia.sala," +
+        jsonObject.put("query","SELECT zajecia.id, zajecia.rodzaj, zajecia.dzien,zajecia.dzien,zajecia.godzina, zajecia.sala," +
                " zajecia.trener_id ,wybrane_zajecia.id from `zajecia` join `wybrane_zajecia` on wybrane_zajecia.zajecia_id=zajecia.id " +
-               "where wybrane_zajecia.user_id=5 ")
+               "where wybrane_zajecia.user_id=1 ")
 
 
 
@@ -72,16 +73,19 @@ class KlientZajecia : AppCompatActivity() {
                             // klasy Zadanie i wstawiamy go do listy lokalnej
                             val id = jsonZadania.getJSONObject(i).getInt("id")
                             val rodzaj = jsonZadania.getJSONObject(i).getString("rodzaj")
-                            val termin = jsonZadania.getJSONObject(i).getString("termin")
+                            val dzien = jsonZadania.getJSONObject(i).getString("dzien")
+                            val godzina = jsonZadania.getJSONObject(i).getString("godzina")
                             val sala = jsonZadania.getJSONObject(i).getInt("sala")
                             val trener_id = jsonZadania.getJSONObject(i).getInt("trener_id")
                             print(id)
                             print(rodzaj)
-                            print(termin)
+                            print(dzien)
+                            print(godzina)
+
                             print(sala)
                             print(trener_id)
 
-                            zaj.add(Zajecia(id,rodzaj , termin, sala, trener_id))
+                            zaj.add(Zajecia(id,rodzaj , dzien,godzina, sala, trener_id))
                         }
                         // Informujemy adapter o konieczności
                         // odświeżenia widoku
@@ -98,6 +102,7 @@ class KlientZajecia : AppCompatActivity() {
     }
 
     fun usunZadanie(position: Int) {//override nie pozebne??
+        val url = "http://10.0.2.2/androiddb/"
         Log.d("usunZadanie","ENTER")
         // Pobieramy kliknięte zadanie z listy
         val zadanie = adapter.getItem(position) as Zajecia
@@ -127,6 +132,10 @@ class KlientZajecia : AppCompatActivity() {
                     Log.d("usunZadanie","Volley error: $it")
                 })
         VolleySingleton.getInstance(this).addToRequestQueue(requestPOST)
+    }
+    fun Odswiez(v:View){
+        odswiezListeZadan2()
+
     }
 
 

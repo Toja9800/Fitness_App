@@ -75,13 +75,19 @@ class DatyActivity : AppCompatActivity() {
         }
 
 
-        val day = date
+       DatyActivity.day=date
 
         Log.d("v.id wyswietlam", "R.id.button:${R.id.button9},   odp: ${v.id}")
-        Log.d("day wyswietlam", "odp: $day")
+
         Log.d("Mainday wyswietlam", "odp: ${DatyActivity.day}")
         Log.d("date wyswietlam", "odp: $date")
         startActivity(intent)
+    }
+
+    fun onClickPowrot(v: View) {
+
+
+        startActivity(Intent(this, MenuKlient::class.java))
     }
 
 

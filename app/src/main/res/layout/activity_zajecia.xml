@@ -7,8 +7,8 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/RodzajZacieciaTrener"
-        android:layout_width="93dp"
+        android:id="@+id/RodzajZacieciaKlient"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:width="110dp"
         android:focusable="false"
@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/TerminZajeciaTrener"
-        android:layout_width="105dp"
+        android:layout_width="83dp"
         android:layout_height="wrap_content"
         android:width="60dp"
         android:focusable="false"
@@ -26,8 +26,8 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/SalaZajeciaTrener"
-        android:layout_width="86dp"
+        android:id="@+id/SalaZajeciaKlient"
+        android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:width="120dp"
         android:focusable="false"
@@ -35,13 +35,24 @@
         android:textAlignment="center"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/godzinaZajeciaKlient"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:width="60dp"
+        android:focusable="false"
+        android:text="godzina"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
     <Button
-        android:id="@+id/buttonUsunZadanie"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonZarezerwuj"
+        android:layout_width="123dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:width="40dp"
-        android:text="Usuń"
-        android:focusable="false" />
+        android:focusable="false"
+        android:text="Usuń" />
 
 </LinearLayout>

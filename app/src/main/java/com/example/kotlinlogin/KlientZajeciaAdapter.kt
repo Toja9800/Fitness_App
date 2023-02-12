@@ -1,8 +1,7 @@
 package com.example.kotlinlogin
 
+import android.annotation.SuppressLint
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +22,7 @@ class KlientZajeciaAdapter(
         fun usunZadanie(position: Int)
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // Pobieramy z listy obiekt Zadanie do wyświelenia
         val zajeciaTrener = getItem(position) as Zajecia
@@ -32,16 +32,18 @@ class KlientZajeciaAdapter(
         val rowView = inflater.inflate(R.layout.activity_zajecia, parent, false)
 
         // Pobieramy referencje do pola tekstowego i przycisku
-        val trenerSala = rowView.findViewById<TextView>(R.id.SalaZajeciaTrener)
+        val trenerSala = rowView.findViewById<TextView>(R.id.SalaZajeciaKlient)
         val trenerTermin = rowView.findViewById<TextView>(R.id.TerminZajeciaTrener)
-        val trenerRodzaj = rowView.findViewById<TextView>(R.id.RodzajZacieciaTrener)
+        val trenerRodzaj = rowView.findViewById<TextView>(R.id.RodzajZacieciaKlient)
+        val trenerGodzina = rowView.findViewById<TextView>(R.id.godzinaZajeciaKlient)
 
-        val buttonUsunZadanie = rowView.findViewById<Button>(R.id.buttonUsunZadanie)
+        val buttonUsunZadanie = rowView.findViewById<Button>(R.id.buttonZarezerwuj)
 
         // Ustawiamy tekstowy opis zadania
         trenerSala.text = zajeciaTrener.sala.toString()
-        trenerTermin.text = zajeciaTrener.termin
+        trenerTermin.text = zajeciaTrener.dzien
         trenerRodzaj.text = zajeciaTrener.rodzaj
+        trenerGodzina.text = zajeciaTrener.godzina
 
 
         // Ustawiamy akcję obsługi kliknięcia przycisku

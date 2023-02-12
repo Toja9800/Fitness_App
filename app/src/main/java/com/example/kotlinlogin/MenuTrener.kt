@@ -49,13 +49,16 @@ class MenuTrener : AppCompatActivity() {
         val sala = textEdit2.text.toString()
 
         var textEdit3 = findViewById<EditText>(R.id.data)
-        val termin = textEdit3.text.toString()
+        val dzien = textEdit3.text.toString()
+
+        var textEdit4 = findViewById<EditText>(R.id.godzina)
+        val godzina = textEdit3.text.toString()
 
 
         val  user = MainActivity.username
         val  password = MainActivity.password
 
-        val query = "INSERT INTO `zajecia` (rodzaj, sala, termin,trener_id) VALUES ('$typZajec', '$sala', '$termin',1)"
+        val query = "INSERT INTO `zajecia` (rodzaj, sala, dzien,godzina,trener_id) VALUES ('$typZajec', '$sala', '$dzien','$godzina',1)"
 
         val url = "http://10.0.2.2/androiddb/"
 
@@ -81,6 +84,7 @@ class MenuTrener : AppCompatActivity() {
                         textEdit.setText("")
                         textEdit2.setText("")
                         textEdit3.setText("")
+                        textEdit4.setText("")
                         // Odświeżamy całą listę zadań
                         odswiezListeZadan()
                         Toast.makeText(this, "Dodano!", Toast.LENGTH_LONG).show()
@@ -100,11 +104,12 @@ class MenuTrener : AppCompatActivity() {
     fun odswiezListeZadan() {
         Log.d("odswiezListeZadan","ENTER")
         // Konstruujemy zapytanie do bazy danych
+        val url = "http://10.0.2.2/androiddb/"
         val jsonObject = JSONObject()
         jsonObject.put("username", MainActivity.username)
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
-        jsonObject.put("query","SELECT id, rodzaj, termin, sala, trener_id from `zajecia`")
+        jsonObject.put("query","SELECT id, rodzaj, dzien,godzina, sala, trener_id from `zajecia`")
 
         val requestPOST =
             JsonObjectRequest(Request.Method.POST, url,jsonObject,
@@ -123,16 +128,19 @@ class MenuTrener : AppCompatActivity() {
                             // klasy Zadanie i wstawiamy go do listy lokalnej
                             val id = jsonZadania.getJSONObject(i).getInt("id")
                             val rodzaj = jsonZadania.getJSONObject(i).getString("rodzaj")
-                            val termin = jsonZadania.getJSONObject(i).getString("termin")
+                            val dzien = jsonZadania.getJSONObject(i).getString("dzien")
+                            val godzina = jsonZadania.getJSONObject(i).getString("godzina")
                             val sala = jsonZadania.getJSONObject(i).getInt("sala")
                             val trener_id = jsonZadania.getJSONObject(i).getInt("trener_id")
                             print(id)
                             print(rodzaj)
-                            print(termin)
-                            print(sala)
-                            //print(trener_id)
+                            print(dzien)
+                            print(godzina)
 
-                            zaj.add(Zajecia(id,rodzaj , termin, sala, trener_id))
+                            print(sala)
+                            print(trener_id)
+
+                            zaj.add(Zajecia(id,rodzaj , dzien,godzina, sala, trener_id))
                         }
                         // Informujemy adapter o konieczności
                         // odświeżenia widoku
@@ -149,6 +157,7 @@ class MenuTrener : AppCompatActivity() {
     }
 
       fun usunZadanie(position: Int) {//override nie pozebne??
+          val url = "http://10.0.2.2/androiddb/"
         Log.d("usunZadanie","ENTER")
         // Pobieramy kliknięte zadanie z listy
         val zadanie = adapter.getItem(position) as Zajecia
@@ -178,6 +187,11 @@ class MenuTrener : AppCompatActivity() {
                     Log.d("usunZadanie","Volley error: $it")
                 })
         VolleySingleton.getInstance(this).addToRequestQueue(requestPOST)
+    }
+
+    fun Odswiez(v:View){
+        odswiezListeZadan()
+
     }
 
 

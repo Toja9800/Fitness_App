@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Data"
+                android:hint="dzien"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -45,6 +45,15 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="sala"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/godzina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="godzina"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -66,7 +75,14 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="559dp" />
+            android:layout_height="511dp" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:onClick="Odswiez"
+            android:text="Odśwież" />
 
         <Button
             android:id="@+id/button17"
