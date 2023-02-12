@@ -34,3 +34,16 @@ FOREIGN KEY (user_id) REFERENCES users(id)ON DELETE CASCADE
 
 INSERT INTO roles (`id`,`role`) VALUES ('1','klient');
 INSERT INTO roles (`id`,`role`) VALUES ('2','trener');
+
+INSERT INTO zajecia VALUES(7, 'boks', 'FRIDAY', '14:00', 8,2);
+INSERT INTO zajecia VALUES(9, 'pilates', 'MONDAY', '10:00', 20,2);
+INSERT INTO zajecia VALUES(15, 'boks', 'MONDAY', '12:00', 2,2);
+INSERT INTO zajecia VALUES(16, 'boks', 'MONDAY', '12:00', 2,2);
+INSERT INTO zajecia VALUES(17, 'joga', 'MONDAY', '10:00', 16,2);
+
+INSERT INTO users VALUES(1, 'qwe', 'qwerty', 'qwe@gmail.com', '2023-02-12 17:43:02', '2023-02-12 17:43:02', 1);
+INSERT INTO users VALUES(2, 'qwe1', 'qwerty1', 'qwe1@gmail.com', '2023-02-12 17:43:52', '2023-02-12 17:43:52', 2);
+INSERT INTO users VALUES(3, 'qwe2', 'qwerty2', 'qwe2@gmail.com', '2023-02-12 17:49:02', '2023-02-12 17:49:02', 1);
+
+INSERT INTO wybrane_zajecia VALUES(11,3,9);
+INSERT INTO wybrane_zajecia VALUES(12,3,15);
