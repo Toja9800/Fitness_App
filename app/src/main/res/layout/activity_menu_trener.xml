@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="dzien"
+                android:hint="Dzień"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="sala"
+                android:hint="Sala"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="godzina"
+                android:hint="Godzina"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -64,12 +64,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button2"
                 android:layout_width="372dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="onClickDodaj"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:background="@drawable/custom2"
                 android:text="Dodaj" />
         </LinearLayout>
@@ -79,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="511dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button18"
             android:layout_width="match_parent"
             android:layout_height="38dp"
@@ -87,12 +89,13 @@
             android:background="@drawable/custom2"
             android:text="Odśwież" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button17"
-            android:layout_width="156dp"
-            android:layout_height="69dp"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
             android:onClick="onClickLogout"
             android:text="Wyloguj się"
+            android:layout_marginTop="15dp"
             android:background="@drawable/custom2"
             app:icon="@android:drawable/ic_menu_revert" />
 

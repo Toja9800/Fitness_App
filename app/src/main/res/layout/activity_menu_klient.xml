@@ -7,15 +7,16 @@
     android:background="@drawable/custom_button"
     tools:context=".MenuKlient">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button3"
         android:layout_width="247dp"
         android:layout_height="98dp"
         android:onClick="onClickSwitchToDaty"
-        android:text="zapisz sie na zajęcia"
+        android:text="zapisz się na zajęcia"
         android:background="@drawable/custom2"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="23dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.613" />
@@ -31,25 +32,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button4"
         android:layout_width="231dp"
         android:layout_height="88dp"
         android:layout_marginBottom="280dp"
         android:background="@drawable/custom2"
         android:onClick="onClickSwitchToTwojeZaj"
-        android:text="Twoje zajecia"
+        android:text="Twoje zajęcia"
+        android:textSize="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickLogout"
-        android:text="Wyloguj sie"
+        android:layout_width="111dp"
+        android:layout_height="50dp"
         android:background="@drawable/custom2"
+        android:onClick="onClickLogout"
+        android:text="Wyloguj się"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

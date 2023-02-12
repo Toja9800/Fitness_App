@@ -16,13 +16,13 @@
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_daty.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_godziny.xml" value="0.25" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_grafik.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_klient_zajecia.xml" value="0.21770833333333334" />
+        <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_klient_zajecia.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_klient_zajecia_adapter.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_main2.xml" value="0.19375" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_main3.xml" value="0.25" />
-        <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_menu_klient.xml" value="0.18489583333333334" />
-        <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_menu_trener.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_menu_klient.xml" value="0.33" />
+        <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_menu_trener.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_zadania.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_zajecia.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/Lenovo/Downloads/KotlinLogin/KotlinLogin/app/src/main/res/layout/activity_zajecia_trener_adapter.xml" value="0.1984375" />
@@ -30,7 +30,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
