@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:background="@drawable/custom_button">
 
     <TextView
         android:id="@+id/RodzajZacieciaKlient"
@@ -12,8 +13,9 @@
         android:layout_height="wrap_content"
         android:width="110dp"
         android:focusable="false"
-        android:text="rodzaj"
-        android:textSize="20sp" />
+        android:text="Rodzaj"
+        android:textSize="20sp"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/SalaZajeciaKlient"
@@ -21,7 +23,7 @@
         android:layout_height="wrap_content"
         android:width="120dp"
         android:focusable="false"
-        android:text="sala"
+        android:text="Sala"
         android:textAlignment="center"
         android:textSize="20sp" />
 
@@ -32,17 +34,18 @@
         android:layout_weight="1"
         android:width="60dp"
         android:focusable="false"
-        android:text="godzina"
+        android:text="Godzina"
         android:textAlignment="center"
         android:textSize="20sp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonZarezerwuj"
         android:layout_width="123dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:width="40dp"
         android:focusable="false"
-        android:text="Rezerwuj" />
+        android:text="Rezerwuj"
+        android:background="@drawable/custom2"/>
 
 </LinearLayout>

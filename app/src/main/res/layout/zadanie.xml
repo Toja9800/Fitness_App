@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:background="@drawable/custom_button">
 
     <TextView
         android:id="@+id/textViewOpisZadania"
@@ -15,13 +16,14 @@
         android:textSize="20sp"
         android:focusable="false" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonZarezerwuj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:width="50dp"
         android:text="Usuń"
-        android:focusable="false" />
+        android:focusable="false"
+        android:background="@drawable/custom2"/>
 
 </LinearLayout>

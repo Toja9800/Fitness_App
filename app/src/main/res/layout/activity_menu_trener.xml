@@ -28,7 +28,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Typ zajęć" />
+                android:hint="Typ zajęć"
+                android:textAlignment="center"/>
 
             <EditText
                 android:id="@+id/data"
@@ -37,7 +38,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Dzień"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/sala"
@@ -46,7 +48,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Sala"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/godzina"
@@ -55,7 +58,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Godzina"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
