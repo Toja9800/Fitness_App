@@ -13,6 +13,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import org.json.JSONArray
 import org.json.JSONObject
+import java.time.LocalDate
 
 class MenuTrener : AppCompatActivity() {
 
@@ -24,9 +25,6 @@ class MenuTrener : AppCompatActivity() {
         setContentView(R.layout.activity_menu_trener)
 
 
-
-
-
         // Tworzymy nasz ZadaniaAdapter i wiążemy go z listView
         adapter = ZajeciaTrenerAdapter(this, zaj, this)
         var listView = findViewById<ListView>(R.id.listView)
@@ -34,8 +32,6 @@ class MenuTrener : AppCompatActivity() {
 
         // Wczytujemy zadania z bazy danych
         odswiezListeZadan()
-
-
 
     }
 
@@ -49,7 +45,7 @@ class MenuTrener : AppCompatActivity() {
         val sala = textEdit2.text.toString()
 
         var textEdit3 = findViewById<EditText>(R.id.data)
-        val dzien = textEdit3.text.toString()
+        var dzien = textEdit3.text.toString()
 
         var textEdit4 = findViewById<EditText>(R.id.godzina)
         val godzina = textEdit4.text.toString()
@@ -58,7 +54,7 @@ class MenuTrener : AppCompatActivity() {
         val  user = MainActivity.username
         val  password = MainActivity.password
 
-        val query = "INSERT INTO `zajecia` (rodzaj, sala, dzien,godzina,trener_id) VALUES ('$typZajec', '$sala', '$dzien','$godzina',1)"
+        val query = "INSERT INTO `zajecia` (rodzaj, sala, dzien,godzina,trener_id) VALUES ('$typZajec', '$sala', '$dzien','$godzina','${MainActivity.id}')"
 
         val url = "http://10.0.2.2/androiddb/"
 

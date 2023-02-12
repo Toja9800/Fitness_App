@@ -99,7 +99,7 @@ class GodzinyActivity: AppCompatActivity() {
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
         jsonObject.put("query",
-            "INSERT INTO `wybrane_zajecia` ( user_id, zajecia_id) VALUES (1,'${zadanie.id}')")
+            "INSERT INTO `wybrane_zajecia` ( user_id, zajecia_id) VALUES ('${MainActivity.id}','${zadanie.id}')")
         Log.d("siema7", "eniu7")
         val requestPOST =
             JsonObjectRequest(Request.Method.POST, url,jsonObject,

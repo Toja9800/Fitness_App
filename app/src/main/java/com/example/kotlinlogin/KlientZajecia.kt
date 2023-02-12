@@ -25,9 +25,6 @@ class KlientZajecia : AppCompatActivity() {
         setContentView(R.layout.activity_klient_zajecia)
 
 
-
-
-
         // Tworzymy nasz ZadaniaAdapter i wiążemy go z listView
         adapter = KlientZajeciaAdapter(this, zaj, this)
         var listView = findViewById<ListView>(R.id.listView)

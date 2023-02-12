@@ -51,6 +51,7 @@ class ZadaniaAdapter(
             if ( rezerwujZadanieListener != null) {
                 rezerwujZadanieListener.rezerwujZadanie(position)
                 Zarezerwuj.setBackgroundColor(0)
+                Zarezerwuj.setTextColor(0)
             }
         }
 
