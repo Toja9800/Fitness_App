@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import com.android.volley.Request
@@ -24,10 +25,6 @@ class GodzinyActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_godziny)
 
-
-
-
-
         // Tworzymy nasz ZadaniaAdapter i wiążemy go z listView
         adapter = ZadaniaAdapter(this, zaj, this)
         var listView = findViewById<ListView>(R.id.listView)
@@ -36,17 +33,14 @@ class GodzinyActivity: AppCompatActivity() {
         // Wczytujemy zadania z bazy danych
         odswiezListeZadan2()
 
-
-
     }
-
-
 
     fun odswiezListeZadan2() {
         Log.d("odswiezListeZadan","ENTER")
         // Konstruujemy zapytanie do bazy danych
         val url = "http://10.0.2.2/androiddb/"
         val jsonObject = JSONObject()
+
         jsonObject.put("username", MainActivity.username)
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
@@ -56,7 +50,7 @@ class GodzinyActivity: AppCompatActivity() {
 
         val requestPOST =
             JsonObjectRequest(Request.Method.POST, url,jsonObject,
-                Response.Listener { response ->
+                { response ->
                     try {
                         // Obsługa odpowiedzi z bazy danych
                         Log.d("odswiezListeZadan","Response: $response")
@@ -75,12 +69,6 @@ class GodzinyActivity: AppCompatActivity() {
                             val godzina = jsonZadania.getJSONObject(i).getString("godzina")
                             val sala = jsonZadania.getJSONObject(i).getInt("sala")
                             val trener_id = jsonZadania.getJSONObject(i).getInt("trener_id")
-                            print(id)
-                            print(rodzaj)
-                            print(dzien)
-                            print(godzina)
-                            print(sala)
-                            print(trener_id)
 
                             zaj.add(Zadanie(id,rodzaj ,  godzina, sala, trener_id))
                         }
@@ -91,16 +79,17 @@ class GodzinyActivity: AppCompatActivity() {
                         Log.d("odswiezListeZadan","Exception: $e")
                     }
 
-                }, Response.ErrorListener{
+                }, {
                     // Error in request
                     Log.d("odswiezListeZadan","Volley error: $it")
                 })
+
         VolleySingleton.getInstance(this).addToRequestQueue(requestPOST)
     }
 
-    fun usunZadanie(position: Int) {//override nie pozebne??
+    fun rezerwujZadanie(position: Int) {//override nie pozebne??
         val url = "http://10.0.2.2/androiddb/"
-        Log.d("usunZadanie","ENTER")
+        Log.d("rezerwujZadanie","ENTER")
         // Pobieramy kliknięte zadanie z listy
         val zadanie = adapter.getItem(position) as Zadanie
 
@@ -110,30 +99,30 @@ class GodzinyActivity: AppCompatActivity() {
         jsonObject.put("password", MainActivity.password)
         jsonObject.put("email","")
         jsonObject.put("query",
-            "INSERT INTO `wybrane_zajecia` ( user_id, zajecia_id) VALUES ('1',${zadanie.id}'")
-
+            "INSERT INTO `wybrane_zajecia` ( user_id, zajecia_id) VALUES (1,'${zadanie.id}')")
+        Log.d("siema7", "eniu7")
         val requestPOST =
             JsonObjectRequest(Request.Method.POST, url,jsonObject,
                 Response.Listener { response ->
                     try {
                         // Obsługa odpowiedzi z bazy danych
-                        Log.d("usunZadanie","Response: $response")
+                        Log.d("rezerwujZadanie","Response: $response")
                         // Odświeżamy całą listę zadań
-                        odswiezListeZadan2()
-                        Toast.makeText(this, "usunieto!", Toast.LENGTH_LONG).show()
+                        //odswiezListeZadan2()
+                        Toast.makeText(this, "zarezerwowano!", Toast.LENGTH_LONG).show()
                     } catch (e:Exception){
-                        Log.d("usunZadanie","Exception: $e")
+                        Log.d("rezerwujZadanie","Exception: $e")
                     }
                 }, Response.ErrorListener{
                     // Error in request
-                    Log.d("usunZadanie","Volley error: $it")
+                    Log.d("rezerwujZadaniee","Volley error: $it")
                 })
+
         VolleySingleton.getInstance(this).addToRequestQueue(requestPOST)
     }
 
 
     fun onClickPowrot(v: View) {
-
 
         startActivity(Intent(this, DatyActivity::class.java))
     }

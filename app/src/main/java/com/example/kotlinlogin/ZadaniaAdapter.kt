@@ -11,49 +11,46 @@ import android.widget.TextView
 
 class ZadaniaAdapter(
     context: Context, tests: List<Zadanie>,
-    val usunZadanieListener: GodzinyActivity,
+    val rezerwujZadanieListener: GodzinyActivity,
 
     ) :
     ArrayAdapter<Zadanie>(context, R.layout.activity_zadania, tests) {
 
     // Interfejs, który musi implementować klasa, która będzie
     // usuwać dla nas zadania (w naszym przypadku ZadaniaActivity)
-    interface UsunZadanieListener {
-        fun usunZadanie(position: Int)
+    interface RezerwujZadanieListener {
+        fun RezerwujZadanie(position: Int)
     }
 
     @SuppressLint("MissingInflatedId")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         // Pobieramy z listy obiekt Zadanie do wyświelenia
-        val zajeciaTrener = getItem(position) as Zajecia
+        val zajecia = getItem(position) as Zadanie
 
         // Tworzymy widok wiersza wg naszego layout'u
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val rowView = inflater.inflate(R.layout.activity_zadania, parent, false)
 
         // Pobieramy referencje do pola tekstowego i przycisku
-        val trenerSala = rowView.findViewById<TextView>(R.id.SalaZajeciaKlient)
+        val sala = rowView.findViewById<TextView>(R.id.SalaZajeciaKlient)
 
-        val trenerRodzaj = rowView.findViewById<TextView>(R.id.RodzajZacieciaKlient)
-        val trenerGodzina = rowView.findViewById<TextView>(R.id.godzinaZajeciaKlient)
+        val rodzaj = rowView.findViewById<TextView>(R.id.RodzajZacieciaKlient)
+        val godzina = rowView.findViewById<TextView>(R.id.godzinaZajeciaKlient)
 
         val Zarezerwuj = rowView.findViewById<Button>(R.id.buttonZarezerwuj)
 
         // Ustawiamy tekstowy opis zadania
-        trenerSala.text = zajeciaTrener.sala.toString()
+        sala.text = zajecia.sala.toString()
 
-        trenerRodzaj.text = zajeciaTrener.rodzaj
-        trenerGodzina.text = zajeciaTrener.godzina
+        rodzaj.text = zajecia.rodzaj
+        godzina.text = zajecia.godzina
 
 
         // Ustawiamy akcję obsługi kliknięcia przycisku
         Zarezerwuj.setOnClickListener { v : View ->
-            if ( usunZadanieListener != null) {
-                // Metoda usunZadanie z klasy ZadaniaActivity
-                // zostanie wywołana z odpowiednią wartością
-                // parametru position, co pozwoli nam zidentyfikować
-                // zadanie do usunięcia
-                usunZadanieListener.usunZadanie(position)
+            if ( rezerwujZadanieListener != null) {
+                rezerwujZadanieListener.rezerwujZadanie(position)
+                Zarezerwuj.setBackgroundColor(0)
             }
         }
 
