@@ -202,7 +202,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button1powrot"
+            android:id="@+id/buttonpowrot"
             android:layout_width="82dp"
             android:layout_height="64dp"
             android:layout_weight="1"
