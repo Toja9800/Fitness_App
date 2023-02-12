@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startActivity(Intent(this, DatyActivity::class.java))
+        //startActivity(Intent(this, DatyActivity::class.java))
     }
 
     fun onClickSwitchToRegister(v: View) {
